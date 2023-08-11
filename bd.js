@@ -28,7 +28,22 @@ async function insertUsuario(data) {
   const usuario = [data.nome, data.senha, data.email];
   await client.query(query, usuario);
 }
+async function deleteUsuario(id) {
+  const client = await connect();
+  const query = "DELETE FROM usuario WHERE id = $1";
+  await client.query(query, [id]);
+}
+
+async function updateUsuario(data) {
+  const client = await connect();
+  const query =
+    "UPDATE usuario SET nome = $1, email = $2, senha = $3 WHERE id = $4";
+  const usuario = [data.nome, data.email, data.senha, data.id];
+  await client.query(query, usuario);
+}
 
 export { selectUsuarios };
 export { selectUsuario };
 export { insertUsuario };
+export { deleteUsuario };
+export { updateUsuario };
