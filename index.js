@@ -18,16 +18,6 @@ app.get("/", (req, res) => {
   console.log("Rota / solicitada");
 });
 
-app.get("/usuarios", async (req, res) => {
-  console.log("Rota GET/usuarios solicitada");
-  try {
-    const usuarios = await selectUsuarios();
-    res.json(usuarios);
-  } catch (error) {
-    res.status(error.status || 500).json({ message: error.message || "Erro!" });
-  }
-});
-
 app.get("/usuario/:id", async (req, res) => {
   console.log("Rota GET /usuario solicitada");
   try {
@@ -48,6 +38,7 @@ app.post("/usuario", async (req, res) => {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
 });
+
 app.delete("/usuario/:id", async (req, res) => {
   console.log("Rota DELETE /usuario solicitada");
   try {
@@ -61,8 +52,8 @@ app.delete("/usuario/:id", async (req, res) => {
   }
 });
 
-app.patch("/usuario", async (req, res) => {
-  console.log("Rota PATCH /usuario solicitada");
+app.put("/usuario", async (req, res) => {
+  console.log("Rota PUT /usuario solicitada");
   try {
     const usuario = await selectUsuario(req.body.id);
     if (usuario.length > 0) {
