@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
   console.log("Rota / solicitada");
 });
 
+
 app.get("/usuario/:id", async (req, res) => {
   console.log("Rota GET /usuario solicitada");
   try {
