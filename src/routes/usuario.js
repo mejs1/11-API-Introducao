@@ -1,6 +1,4 @@
 import { Router } from "express";
-export default router;
-
 import {
     selectUsuario,
     selectUsuarios,
@@ -74,3 +72,4 @@ router.delete("/usuario/:id", async (req, res) => {
         res.status(error.status || 500).json({ message: error.message || "Erro!" });
     }
 });
+export default router;
