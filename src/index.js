@@ -19,5 +19,5 @@ app.listen(port, () => {
 });
 
 import roteadorUsuario from "./routes/usuario.js";
-https://my-deployment-my-username.vercel.app/_logs
+
 app.use(roteadorUsuario);
